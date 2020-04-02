@@ -8,7 +8,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400);
+  var canvas = createCanvas(400, 400);
+  canvas.parent('chart')
   //convert to JSON
   data = Object.values(table.getObject())
   noLoop()
@@ -34,6 +35,8 @@ function createStatesTable() {
   //filter out only the ~50 rows for the most recent date
   const lastDate = data[data.length-1].date
   const recentData = data.filter(row => row.date == lastDate)
+    //order by cases, descending
+    .sort( (a,b) => b.cases - a.cases )
   
   //write HTML for each row of data
   const newRowsHTML = recentData.map(row => 
