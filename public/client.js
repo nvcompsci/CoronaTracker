@@ -24,6 +24,27 @@ function draw() {
   
   //draw Ohio data
   drawBars(data_OH)
+  createStatesTable()
+}
+
+function createStatesTable() {
+  //select table element
+  const $table = document.querySelector('section#statesData table')
+  
+  //filter out only the ~50 rows for the most recent date
+  const lastDate = data[data.length-1].date
+  const recentData = data.filter(row => row.date == lastDate)
+  
+  //write HTML for each row of data
+  const newRowsHTML = recentData.map(row => 
+    `<tr>
+      <td>${row.state}</td>
+      <td>${row.cases}</td>
+      <td>${row.deaths}</td>
+    </tr>`
+  ).join('')
+  //add new HTML to the table
+  $table.innerHTML += newRowsHTML
 }
 
 function drawBars(smallData) {
