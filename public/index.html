@@ -10,6 +10,34 @@
     <header>
       <h1>CoronaTracker</h1>
     </header>
+    <section id="forms">
+      <h3>User Info</h3>
+      <form id="userInfo">
+        <label for="first">First Name: </label>
+        <input id="first" type="text"  required  name="first" />
+
+        <label for="last">Last Name: </label>
+        <input id="last" type="text"  required  name="last" />
+
+        <label for="email">Email Address: </label>
+        <input id="email" type="email"  required  name="email" />
+
+        <label for="password">Password: </label>
+        <input id="password" type="password"  required  name="password" />
+
+        <label for="age">Age: </label>
+        <input id="age" type="number" required name="age" step=1 />
+
+        <label for="gender">Gender: </label>
+        <select id="gender" required name="gender">
+          <option value="placeholder" disabled selected>(Choose One)</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <input type="submit" />
+      </form>
+    </section>
     <section id="statesData">
       <h3>States Data</h3>
       <table>
