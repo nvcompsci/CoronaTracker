@@ -26,6 +26,7 @@ function draw() {
   //draw Ohio data
   drawBars(data_OH)
   createStatesTable()
+  updateSummaryData()
 }
 
 function createStatesTable() {
@@ -82,4 +83,30 @@ function submitUserInfo(event) {
   //just for now...
   console.log(user)
   //TODO send POST request with fetch API
+}
+
+function updateSummaryData() {
+  //variable references to elements in HTML
+  //# means id attribute in HTML tag
+  const $totalCases = document.querySelector('td#totalCases')
+  const $totalDeaths = document.querySelector('td#totalDeaths')
+  const $deathRatio = document.querySelector('td#deathRatio')
+
+  $totalCases.innerHTML = calcSummaryData()
+  //OR $totalCases.innerHTML = calcSummaryData()
+  //OR $totalCases.textContent = 34000 if I had a concrete number
+  //TODO calculate other values
+}
+
+function calcSummaryData() {
+  const lastDate = data[data.length-1].date
+  const cases = data
+    //include only data from the 1 last date
+    .filter( row => row.date == lastDate)
+    //sum cases, parse as integers since they are strings
+    .reduce( (sum, row) => 
+      sum + parseInt(row.cases)
+    , 0)
+  return cases
+  //TODO calculate deaths also
 }
