@@ -58,3 +58,28 @@ function drawBars(smallData) {
     rect(i * SPACING, 400, -5, -cases * SCALING)
   })
 }
+
+function submitUserInfo(event) {
+  //prevent the page from reloading on submit
+  event.preventDefault()
+
+  //create reference to form
+  const $userForm = document.querySelector("form#userInfo")
+
+  //create user object with all attributes from form#userInfo
+  //note how .value actually gives the user input for that element
+  let user = {}
+  user.first = $userForm.first.value
+  user.last = $userForm.last.value
+  user.email = $userForm.email.value
+  user.password = $userForm.password.value
+  //parseInt() to get integer not string
+  user.age = parseInt($userForm.age.value)
+  user.gender = $userForm.gender.value
+
+  //or let user = new FormData( $userInfo ) - but this isn't JSON
+
+  //just for now...
+  console.log(user)
+  //TODO send POST request with fetch API
+}
