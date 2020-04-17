@@ -80,9 +80,27 @@ function submitUserInfo(event) {
 
   //or let user = new FormData( $userInfo ) - but this isn't JSON
 
-  //just for now...
-  console.log(user)
-  //TODO send POST request with fetch API
+  //POST on /login
+  
+  //place user inside package for consistency
+  const package = {
+    user
+    //OR "user": user
+  }
+  //build the HTTP request
+  const config = {
+    method: "POST",
+    body: JSON.stringify( package ),
+    headers: {
+        "Content-Type":"application/json"
+    }
+  }
+  //make HTTP request on /login
+  fetch("/login",config)
+      .then( response => response.json() )
+      //just for now...
+      .then( response => console.log(response) )
+      .catch(err => console.error(err))
 }
 
 function updateSummaryData() {
