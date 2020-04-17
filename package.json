@@ -1,0 +1,29 @@
+{
+  "name": "coronatracker",
+  "version": "0.3.1",
+  "description": "Web app for users to submit location data and symptoms to help with contact tracing. Users can also see a summary of up to date covid-19 statistics.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvcompsci/CoronaTracker.git"
+  },
+  "keywords": [
+    "covid-19",
+    "web",
+    "app",
+    "education"
+  ],
+  "author": "John Word",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/nvcompsci/CoronaTracker/issues"
+  },
+  "homepage": "https://github.com/nvcompsci/CoronaTracker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
